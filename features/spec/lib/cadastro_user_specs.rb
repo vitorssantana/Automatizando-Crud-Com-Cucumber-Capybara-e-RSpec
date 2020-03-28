@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 require_relative '../../pages/lista_user_page'
 require_relative '../../pages/cadastro_user_page'
 
