@@ -1,7 +1,7 @@
 #language: pt
-Funcionalidade: Criar users no jeasyui
+Funcionalidade: Criar user no jeasyui
 
-    Para que eu possa criar users no sistema da jeasyui
+    Para que eu possa criar user no sistema da jeasyui
     Sendo um usuario
     Posso entrar no site jeasyuis
 
