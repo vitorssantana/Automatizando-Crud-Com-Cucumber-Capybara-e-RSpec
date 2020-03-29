@@ -51,8 +51,7 @@
       campo_email: ''
     )
     @cadastro_user.clicar_save_user
-  end
-  
+  end 
   
   Entao("o sistema nao deve permitir o cadastro") do
     expect(@cadastro_user).to have_css('#_easyui_textbox_input1')
@@ -77,6 +76,7 @@
   end
 
   Entao ("sera indicado que o email e invalido") do
+    @cadastro_user = CadastroUserPage.new
     expect(@cadastro_user).to have_text('Please enter a valid email address.')
   end
 
@@ -100,8 +100,8 @@
     @lista_user = ListaUserPage.new
     @lista_user.selecionar_num_paginacao('999')
     @lista_user.selecionar_num_registros('50')
-    expect(@cadastro_user).to have_text('Vitor')
-    expect(@cadastro_user).to have_text('Santana')
-    expect(@cadastro_user).to have_text('993962991')
-    expect(@cadastro_user).to have_text('imavvitorsantana@email.com')
+    expect(@lista_user).to have_text('Vitor')
+    expect(@lista_user).to have_text('Santana')
+    expect(@lista_user).to have_text('993962991')
+    expect(@lista_user).to have_text('imavvitorsantana@email.com')
   end

@@ -37,9 +37,9 @@ Funcionalidade: Editar user no jeasyui
 
     Cenario: Editar user com sucesso
         Quando eu altero os dados do user por estes:
-            | firstname | Vitor                   |
-            | lastname  | Santana                 |
-            | phone     | 993962991               |
-            | email     | imavvitorsantana@email.com|
+            | firstname | Souza                   |
+            | lastname  | Silva                 |
+            | phone     | 88888888               |
+            | email     | souzasilva@email.com|
         E realizo a alteracao
         Entao o sistema deve me mostrar os novos dados na lista  

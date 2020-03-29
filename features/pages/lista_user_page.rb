@@ -25,11 +25,11 @@ class ListaUserPage < SitePrism::Page
         input_num_paginacao.set(option)
     end
 
-    def selecionar_user_na_lista(firstname, lastname, phone, email)
-        all(:xpath, '//tr[contains(@id, "dg_datagrid-row-r1-2-")]').each do |user|
-            
-            if user.find('.dg_datagrid-cell-c1-firstname') == firstname && user.find('.dg_datagrid-cell-c1-lastname') == lastname && user.find('.dg_datagrid-cell-c1-phone') == phone && user.find('.dg_datagrid-cell-c1-email') == email
-                user.find('.dg_datagrid-cell-c1-firstname').click
+    def selecionar_user_na_lista(firstname, lastname)
+        all(:xpath, '//tr[contains(@id, "dg_datagrid-row-r1-2-")]').each do |user| 
+            if user.find(:css, '.dg_datagrid-cell-c1-firstname').text == firstname && user.find(:css, '.dg_datagrid-cell-c1-lastname').text == lastname
+                user.find(:css, '.dg_datagrid-cell-c1-firstname').click
+                break
             end
         end
     end

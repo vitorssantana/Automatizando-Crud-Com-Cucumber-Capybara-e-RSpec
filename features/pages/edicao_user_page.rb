@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CadastroUserPage < SitePrism::Page
+class EdicaoUserPage < SitePrism::Page
 
     element :campo_first_name, '#_easyui_textbox_input1'
     element :campo_last_name, '#_easyui_textbox_input2'
