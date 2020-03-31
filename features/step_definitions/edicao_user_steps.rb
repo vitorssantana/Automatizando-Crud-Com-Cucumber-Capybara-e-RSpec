@@ -1,12 +1,24 @@
 #encoding: utf-8
 
-  Before ('@first_scenario') do
-    # Criar user somente pra esse teste
+  Before ('@first_scenario_edicao_user') do
+    @lista_user = ListaUserPage.new
+    @lista_user.load
+    @lista_user.clicar_add_novo_user
+
+    @cadastro_user = CadastroUserPage.new
+    @cadastro_user.preencher_dados_user(      
+        campo_first_name: 'Teste',
+        campo_last_name: 'Edicao',
+        campo_phone: '+5571999999999',
+        campo_email: 'testeedicao@email.com')
+    @cadastro_user.clicar_save_user  
   end
 
   Quando("eu tento editar um user com firstname em branco") do
     @lista_user = ListaUserPage.new
-    @lista_user.selecionar_user_na_lista( 'Vitor', 'Santana')
+    @lista_user.selecionar_num_paginacao('999')
+    @lista_user.selecionar_num_registros('50')
+    @lista_user.selecionar_user_na_lista( 'Teste', 'Edicao')
     @lista_user.clicar_edit_novo_user
 
     @edicao_user = EdicaoUserPage.new
@@ -20,8 +32,10 @@
   end
   
   Quando("eu tento editar um user com lastname em branco") do
+    @lista_user.selecionar_num_paginacao('999')
+    @lista_user.selecionar_num_registros('50')
     @lista_user.selecionar_user_na_lista(
-      'Vitor', 'Santana'
+      'Teste', 'Edicao'
     )
     @lista_user.clicar_edit_novo_user
 
@@ -36,8 +50,10 @@
   end
   
   Quando("eu tento editar um user com phone em branco") do
+    @lista_user.selecionar_num_paginacao('999')
+    @lista_user.selecionar_num_registros('50')
     @lista_user.selecionar_user_na_lista(
-      'Vitor', 'Santana'
+      'Teste', 'Edicao'
     )
     @lista_user.clicar_edit_novo_user
 
@@ -52,8 +68,10 @@
   end
   
   Quando("eu tento editar um user com email em branco") do
+    @lista_user.selecionar_num_paginacao('999')
+    @lista_user.selecionar_num_registros('50')
     @lista_user.selecionar_user_na_lista(
-      'Vitor', 'Santana'
+      'Teste', 'Edicao'
     )
     @lista_user.clicar_edit_novo_user
 
@@ -68,8 +86,10 @@
   end
   
   Quando("eu tento editar o user pondo email {string} invalido") do |string|
+    @lista_user.selecionar_num_paginacao('999')
+    @lista_user.selecionar_num_registros('50')
     @lista_user.selecionar_user_na_lista(
-      'Vitor', 'Santana'
+      'Teste', 'Edicao'
     )
     @lista_user.clicar_edit_novo_user
     @edicao_user = EdicaoUserPage.new
@@ -83,8 +103,10 @@
   end
   
   Quando("eu altero os dados do user por estes:") do |table|
+    @lista_user.selecionar_num_paginacao('999')
+    @lista_user.selecionar_num_registros('50')
     @lista_user.selecionar_user_na_lista(
-      'Vitor', 'Santana'
+      'Teste', 'Edicao'
     )
     @lista_user.clicar_edit_novo_user
     @edicao_user = EdicaoUserPage.new
@@ -95,7 +117,6 @@
       campo_phone: @usuario[:phone],
       campo_email: @usuario[:email]
     )
-
   end
 
   E("realizo a alteracao") do

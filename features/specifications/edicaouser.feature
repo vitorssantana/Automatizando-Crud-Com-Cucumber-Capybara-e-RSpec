@@ -8,7 +8,7 @@ Funcionalidade: Editar user no jeasyui
     Contexto: 
         Dado que eu acesse o sistema da jeasyui
         
-    @first_scenario
+    @first_scenario_edicao_user
     Cenario: Nao preenchimento do campo firstname
         Quando eu tento editar um user com firstname em branco
         Entao o sistema nao deve permitir a edicao
