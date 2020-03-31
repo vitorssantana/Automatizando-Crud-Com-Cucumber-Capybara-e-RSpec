@@ -4,7 +4,8 @@ require_relative '../../pages/edicao_user_page'
 
 describe EdicaoUserPage do
     
-    before do
+    before (:all) do
+        #Criar user
         @lista_user = ListaUserPage.new
         @lista_user.load
         @lista_user.selecionar_user_na_lista('Vitor', 'Santana')

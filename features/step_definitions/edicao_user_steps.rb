@@ -1,5 +1,9 @@
 #encoding: utf-8
 
+  Before ('@first_scenario') do
+    # Criar user somente pra esse teste
+  end
+
   Quando("eu tento editar um user com firstname em branco") do
     @lista_user = ListaUserPage.new
     @lista_user.selecionar_user_na_lista( 'Vitor', 'Santana')
