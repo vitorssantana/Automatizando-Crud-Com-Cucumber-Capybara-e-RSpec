@@ -1,29 +1,30 @@
 require_relative '../spec_helper'
 require_relative '../../pages/lista_user_page'
 require_relative '../../pages/edicao_user_page'
+require_relative '../../pages/cadastro_user_page'
 
 describe EdicaoUserPage do
     
     before (:all) do
-        before (:all) do
-            #Criar user
-            @lista_user = ListaUserPage.new
-            @lista_user.load
-            @lista_user.clicar_add_novo_user
+        @lista_user = ListaUserPage.new
+        @lista_user.load
+        @lista_user.clicar_add_novo_user
         
-            @cadastro_user = CadastroUserPage.new
-            @cadastro_user.preencher_dados_user(      
-                campo_first_name: 'Teste',
-                campo_last_name: 'Edicao',
-                campo_phone: '+5571999999999',
-                campo_email: 'testeremocao@email.com')
-            @cadastro_user.clicar_save_user  
-        end
+        @cadastro_user = CadastroUserPage.new
+        @cadastro_user.preencher_dados_user(      
+            campo_first_name: 'Teste',
+            campo_last_name: 'Edicao',
+            campo_phone: '+5571999999999',
+            campo_email: 'testeremocao@email.com')
+        @cadastro_user.clicar_save_user  
     end
+    
 
     before  do
         @lista_user = ListaUserPage.new
         @lista_user.load
+        @lista_user.selecionar_num_paginacao('999')
+        @lista_user.selecionar_num_registros('50')
         @lista_user.selecionar_user_na_lista('Teste', 'Edicao')
         @lista_user.clicar_edit_novo_user
         @edicao_user = EdicaoUserPage.new
